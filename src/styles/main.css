@@ -1,0 +1,19 @@
+:root {
+  color: #5b4636;
+  background: #d9c29d;
+  font-family: "Nunito", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+html, body, #app { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body {
+  min-width: 320px;
+  min-height: 568px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,.52), transparent 42%),
+    linear-gradient(180deg, #ead9ba 0%, #caaa78 100%);
+}
+canvas { display: block; margin: 0 auto; touch-action: none; }
+button { font: inherit; }
