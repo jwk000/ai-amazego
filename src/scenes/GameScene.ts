@@ -6,16 +6,15 @@ import { findNearestLine } from "../gameplay/LineHitTest";
 import { advanceLineOneGrid, evaluateMove, isLineOutside } from "../gameplay/MoveEvaluator";
 import { calculateStars } from "../gameplay/ScoreCalculator";
 import { loadSave, recordWin } from "../gameplay/SaveData";
-import { generateLevel } from "../level/LevelGenerator";
 import { DESIGNED_LEVELS } from "../level/DesignedLevels";
-import { GENERATED_LEVEL_COUNT, getGeneratedLevel } from "../data/GeneratedLevelRepository";
+import { GENERATED_LEVEL_COUNT, getGeneratedLevel, getLevelPreview } from "../data/GeneratedLevelRepository";
 import { getEscapableLines } from "../level/LevelSolver";
 
 const DESIGN_WIDTH = 1080;
 const DESIGN_HEIGHT = 1920;
 const LINE_COLOR = 0x4b4b4b;
 const STEP_DURATION_MS = 55;
-const ESCAPE_STEP_DURATION_MS = 45;
+const ESCAPE_STEP_DURATION_MS = 10;
 
 export class GameScene extends Phaser.Scene {
   private levelNumber = 1;
@@ -35,15 +34,34 @@ export class GameScene extends Phaser.Scene {
   private timerEvent?: Phaser.Time.TimerEvent;
   private pageObjects: Phaser.GameObjects.GameObject[] = [];
   private levelPage = 0;
+  private backgroundMusic?: Phaser.Sound.BaseSound;
 
   constructor() {
     super("game");
   }
 
+  preload(): void {
+    this.load.audio("bgm", "audio/bgm.mp3");
+    this.load.audio("click", "audio/click.mp3");
+    this.load.audio("victory", "audio/victory.mp3");
+    this.load.audio("failure", "audio/failure.mp3");
+  }
+
   create(): void {
     this.cameras.main.setBackgroundColor("#f6eddc");
     this.createPaperBackground();
+    this.input.on("pointerdown", () => {
+      this.startBackgroundMusic();
+      this.sound.play("click", { volume: 0.34 });
+    });
     this.showLevelSelect();
+  }
+
+  private startBackgroundMusic(): void {
+    if (!this.backgroundMusic) {
+      this.backgroundMusic = this.sound.add("bgm", { loop: true, volume: 0.22 });
+    }
+    if (!this.backgroundMusic.isPlaying) this.backgroundMusic.play();
   }
 
   private createPaperBackground(): void {
@@ -114,7 +132,8 @@ export class GameScene extends Phaser.Scene {
       fontStyle: "bold",
       color: "#cf8a19",
     }).setOrigin(0.5);
-    const subtitle = this.add.text(540, 205, `100 个剪影关卡 · 第 ${this.levelPage + 1}/10 页`, {
+    const totalPages = Math.ceil(GENERATED_LEVEL_COUNT / 10);
+    const subtitle = this.add.text(540, 205, `${GENERATED_LEVEL_COUNT} 个高密度剪影关卡 · 第 ${this.levelPage + 1}/${totalPages} 页`, {
       fontFamily: "PingFang SC, sans-serif",
       fontSize: "30px",
       color: "#8b715a",
@@ -164,7 +183,7 @@ export class GameScene extends Phaser.Scene {
     card.lineStyle(3, 0xe4d0aa, 1);
     card.strokeRoundedRect(-205, -125, 410, 255, 32);
     const preview = this.add.graphics();
-    this.drawLevelThumbnail(preview, getGeneratedLevel(levelNumber), 0, -32, 260, 145);
+    this.drawLevelThumbnail(preview, getLevelPreview(levelNumber), 0, -32, 260, 145);
     const numberText = this.add.text(-166, -92, String(levelNumber), {
       fontFamily: "Arial Rounded MT Bold, sans-serif",
       fontSize: "27px",
@@ -188,27 +207,28 @@ export class GameScene extends Phaser.Scene {
     return container;
   }
 
-  private drawLevelThumbnail(graphics: Phaser.GameObjects.Graphics, level: ReturnType<typeof getGeneratedLevel>, centerX: number, centerY: number, width: number, height: number): void {
-    const scale = Math.min(width / level.board.width, height / level.board.height);
-    const originX = centerX - (level.board.width - 1) * scale / 2;
-    const originY = centerY - (level.board.height - 1) * scale / 2;
-    graphics.lineStyle(Math.max(2.2, scale * 0.18), LINE_COLOR, 0.9);
-    for (const line of level.lines) {
-      graphics.beginPath();
-      line.points.forEach((point, index) => {
-        const px = originX + point.x * scale;
-        const py = originY + point.y * scale;
-        if (index === 0) graphics.moveTo(px, py); else graphics.lineTo(px, py);
-      });
-      graphics.strokePath();
-    }
+  private drawLevelThumbnail(graphics: Phaser.GameObjects.Graphics, preview: ReturnType<typeof getLevelPreview>, centerX: number, centerY: number, width: number, height: number): void {
+    if (!preview) return;
+    const scale = Math.min(width / preview.width, height / preview.height);
+    const originX = centerX - (preview.width - 1) * scale / 2;
+    const originY = centerY - (preview.height - 1) * scale / 2;
+    graphics.fillStyle(LINE_COLOR, 0.92);
+    preview.rows.forEach((row, y) => [...row].forEach((value, x) => {
+      if (value === "1") graphics.fillCircle(originX + x * scale, originY + y * scale, Math.max(1, scale * 0.43));
+    }));
   }
 
-  private startLevel(levelNumber: number): void {
+  private async startLevel(levelNumber: number): Promise<void> {
     this.levelNumber = Math.max(1, levelNumber);
     this.clearPageObjects();
+    const loading = this.add.text(540, 900, "关卡加载中…", {
+      fontFamily: "PingFang SC, sans-serif", fontSize: "44px", color: "#8b715a",
+    }).setOrigin(0.5);
+    this.pageObjects.push(loading);
+    const level = await getGeneratedLevel(this.levelNumber);
+    loading.destroy();
+    this.pageObjects = this.pageObjects.filter((object) => object !== loading);
     this.createHeader();
-    const level = generateLevel(this.levelNumber);
     this.state = new GameState(level);
     this.levelText.setText(`关卡 ${this.levelNumber}`);
     this.fitBoard();
@@ -259,8 +279,8 @@ export class GameScene extends Phaser.Scene {
     const board = this.state.level.board;
     const availableWidth = 900;
     const availableHeight = 1120;
-    this.cellSize = Math.floor(Math.min(54, availableWidth / Math.max(1, board.width - 1), availableHeight / Math.max(1, board.height - 1)));
-    this.cellSize = Math.max(34, this.cellSize);
+    this.cellSize = Math.floor(Math.min(34, availableWidth / Math.max(1, board.width - 1), availableHeight / Math.max(1, board.height - 1)));
+    this.cellSize = Math.max(20, this.cellSize);
     const boardWidth = (board.width - 1) * this.cellSize;
     const boardHeight = (board.height - 1) * this.cellSize;
     this.boardOrigin.set((DESIGN_WIDTH - boardWidth) / 2, 360 + (availableHeight - boardHeight) / 2);
@@ -336,8 +356,8 @@ export class GameScene extends Phaser.Scene {
           x: Phaser.Math.Linear(from.x, to.x, progress),
           y: Phaser.Math.Linear(from.y, to.y, progress),
         });
-        const width = Math.max(8, this.cellSize * 0.16);
-        graphics.lineStyle(width + 6, 0xffffff, 0.38);
+        const width = Math.max(4, this.cellSize * 0.08);
+        graphics.lineStyle(width + 3, 0xffffff, 0.38);
         this.strokeContinuousPath(graphics, visiblePoints);
         graphics.lineStyle(width, LINE_COLOR, 1);
         this.strokeContinuousPath(graphics, visiblePoints);
@@ -362,7 +382,7 @@ export class GameScene extends Phaser.Scene {
       x: (worldX - this.boardOrigin.x) / this.cellSize,
       y: (worldY - this.boardOrigin.y) / this.cellSize,
     };
-    const line = findNearestLine(this.state.lines, gridPoint, 0.46);
+    const line = findNearestLine(this.state.lines, gridPoint, 0.62);
     if (line) void this.handleLineTap(line.id);
   }
 
@@ -374,8 +394,8 @@ export class GameScene extends Phaser.Scene {
     if (visible.length === 0) return;
 
     const color = LINE_COLOR;
-    const width = Math.max(8, this.cellSize * 0.16);
-    graphics.lineStyle(width + 6, 0xffffff, 0.38);
+    const width = Math.max(4, this.cellSize * 0.08);
+    graphics.lineStyle(width + 3, 0xffffff, 0.38);
     this.strokeVisiblePath(graphics, line.points, offset);
     graphics.lineStyle(width, color, 1);
     this.strokeVisiblePath(graphics, line.points, offset);
@@ -493,8 +513,8 @@ export class GameScene extends Phaser.Scene {
       };
     }
 
-    const width = Math.max(8, this.cellSize * 0.16);
-    graphics.lineStyle(width + 6, 0xffffff, 0.38);
+    const width = Math.max(4, this.cellSize * 0.08);
+    graphics.lineStyle(width + 3, 0xffffff, 0.38);
     this.strokeContinuousPath(graphics, renderPoints);
     graphics.lineStyle(width, LINE_COLOR, 1);
     this.strokeContinuousPath(graphics, renderPoints);
@@ -612,6 +632,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private showVictory(): void {
+    this.sound.play("victory", { volume: 0.68 });
     this.state.updateTimer();
     const stars = calculateStars(this.state.elapsedSeconds, this.state.water, this.state.level.difficulty.parTimeSeconds);
     recordWin(this.levelNumber, stars, this.state.elapsedSeconds);
@@ -650,6 +671,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private showFailure(): void {
+    this.sound.play("failure", { volume: 0.62 });
     this.overlay = this.createOverlay(0xf7eee3);
     this.overlay.add(this.createCard(540, 900, 820, 650));
     const title = this.add.text(540, 680, "差一点！", {

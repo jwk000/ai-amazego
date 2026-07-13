@@ -7,7 +7,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "assets/silhouettes/source-svg"
+SOURCE = ROOT / "assets/silhouettes/source-svg/filled"
 OUTPUT = ROOT / "src/data/silhouette-boards.json"
 PREVIEWS = ROOT / "assets/silhouettes/svg-previews"
 
@@ -66,7 +66,9 @@ def rasterize(svg_path):
 
 
 def image_mask(image):
-    return [[image.getpixel((x,y)) < 200 for x in range(image.width)] for y in range(image.height)]
+    reduced = image.resize((144, 144), Image.Resampling.LANCZOS)
+    values = list(reduced.get_flattened_data())
+    return [[values[y * reduced.width + x] < 200 for x in range(reduced.width)] for y in range(reduced.height)]
 
 
 def choose_grid(mask):
@@ -75,11 +77,11 @@ def choose_grid(mask):
     min_x, min_y, max_x, max_y = box
     ratio = (max_x - min_x + 1) / (max_y - min_y + 1)
     if ratio >= 1:
-        width = 20
-        height = max(14, min(28, round(20 / ratio)))
+        width = 36
+        height = max(28, min(52, round(36 / ratio)))
     else:
-        height = 28
-        width = max(14, min(20, round(28 * ratio)))
+        height = 52
+        width = max(28, min(36, round(52 * ratio)))
     return width, height, box
 
 
@@ -119,7 +121,7 @@ def main():
         grid = sample(mask, width, height, box)
         active = sum(sum(row) for row in grid)
         if active < 35:
-            grid = sample(mask, min(20, width+2), min(28, height+2), box)
+            grid = sample(mask, min(36, width+2), min(52, height+2), box)
             height, width = len(grid), len(grid[0])
             active = sum(sum(row) for row in grid)
         preview = Image.new("L", (width*20, height*20), 255)

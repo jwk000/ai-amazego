@@ -4,7 +4,6 @@ import type { ArrowLine, BoardMask, Direction, GridPoint, LevelData } from "../c
 import { evaluateMove } from "../gameplay/MoveEvaluator";
 import { generateBoardMask } from "./BoardMaskGenerator";
 import { getEscapableLines, solveLevel } from "./LevelSolver";
-import { GENERATED_LEVEL_COUNT, getGeneratedLevel } from "../data/GeneratedLevelRepository";
 
 const LINE_COLOR = 0x4b4b4b;
 const directions: Direction[] = ["up", "right", "down", "left"];
@@ -102,7 +101,6 @@ const computeDependencyDepth = (lines: readonly ArrowLine[], width: number, heig
 };
 
 export const generateLevel = (levelNumber: number): LevelData => {
-  if (levelNumber >= 1 && levelNumber <= GENERATED_LEVEL_COUNT) return getGeneratedLevel(levelNumber);
   const baseSeed = 104729 * levelNumber + 7919;
 
   for (let restart = 0; restart < 80; restart += 1) {

@@ -1,8 +1,40 @@
+# Dependencies
 node_modules/
+
+# Web build output and caches
 dist/
-*.tsbuildinfo
 .vite/
-.DS_Store
+*.tsbuildinfo
+coverage/
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Generated source assets
+assets/audio/generated/
+assets/silhouettes/raw/
+assets/silhouettes/processed/
+assets/silhouettes/grids/
+assets/silhouettes/reports/
+assets/silhouettes/svg-previews/
+
+# Android build output and machine-local configuration
 android/.gradle/
+android/build/
 android/app/build/
+android/app/src/main/assets/
 android/local.properties
+*.apk
+*.aab
+
+# Editor and operating-system files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

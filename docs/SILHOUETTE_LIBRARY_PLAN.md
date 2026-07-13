@@ -224,3 +224,23 @@ npm run generate:levels
 python3 scripts/convert-svg-silhouettes.py
 npm run generate:levels
 ```
+
+## 14. Tabler Filled 千关素材库
+
+当前正式关卡已切换为 Tabler Icons 的 `filled` 图标集合，只使用实心版本，不使用 `outline`。素材总数为 1053 个，对应 1053 个关卡。许可证为 MIT，副本保存在 `assets/silhouettes/TABLER-LICENSE.txt`。
+
+点阵密度从原先最高约 20 × 28 提升到最高约 36 × 52。高密度点阵有效点数量范围约为 133 至 1599，横纵采样密度接近原来的两倍。
+
+为了避免将千关数据打入首屏 JavaScript：
+
+- `src/data/silhouette-boards.json` 只保存轻量点阵目录，用于列表缩略图；
+- `public/levels/0001.json` 至 `public/levels/1053.json` 保存单关数据；
+- 玩家点击关卡后才按需加载对应 JSON；
+- 离线生成使用多进程并行和逐关落盘，支持断点续跑。
+
+完整重建命令：
+
+```bash
+npm run silhouette:svg
+LEVEL_JOBS=10 npm run generate:levels -- --clean
+```
