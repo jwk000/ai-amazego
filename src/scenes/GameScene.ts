@@ -35,6 +35,7 @@ export class GameScene extends Phaser.Scene {
   private pageObjects: Phaser.GameObjects.GameObject[] = [];
   private levelPage = 0;
   private backgroundMusic?: Phaser.Sound.BaseSound;
+  private audioReady = false;
 
   constructor() {
     super("game");
@@ -43,6 +44,7 @@ export class GameScene extends Phaser.Scene {
   preload(): void {
     this.load.audio("bgm", "audio/bgm.mp3");
     this.load.audio("click", "audio/click.mp3");
+    this.load.audio("collision", "audio/collision.mp3");
     this.load.audio("victory", "audio/victory.mp3");
     this.load.audio("failure", "audio/failure.mp3");
   }
@@ -50,9 +52,19 @@ export class GameScene extends Phaser.Scene {
   create(): void {
     this.cameras.main.setBackgroundColor("#f6eddc");
     this.createPaperBackground();
-    this.input.on("pointerdown", () => {
+    const enableAudio = (): void => {
+      this.audioReady = true;
       this.startBackgroundMusic();
-      this.sound.play("click", { volume: 0.34 });
+      this.playSound("click", 0.8);
+    };
+    if (this.sound.locked) this.sound.once(Phaser.Sound.Events.UNLOCKED, enableAudio);
+    else enableAudio();
+    this.input.on("pointerdown", () => {
+      if (!this.sound.locked) {
+        this.audioReady = true;
+        this.startBackgroundMusic();
+        this.playSound("click", 0.8);
+      }
     });
     this.showLevelSelect();
   }
@@ -61,7 +73,11 @@ export class GameScene extends Phaser.Scene {
     if (!this.backgroundMusic) {
       this.backgroundMusic = this.sound.add("bgm", { loop: true, volume: 0.22 });
     }
-    if (!this.backgroundMusic.isPlaying) this.backgroundMusic.play();
+    if (this.audioReady && !this.backgroundMusic.isPlaying) this.backgroundMusic.play();
+  }
+
+  private playSound(key: string, volume: number): void {
+    if (this.audioReady && !this.sound.locked) this.sound.play(key, { volume });
   }
 
   private createPaperBackground(): void {
@@ -297,6 +313,8 @@ export class GameScene extends Phaser.Scene {
       shine.fillStyle(0xffffff, 0.55);
       shine.fillCircle(-9, 2, 5);
       container.add([drop, shine]);
+      container.setData("drop", drop);
+      container.setData("shine", shine);
       this.waterDrops.push(container);
     }
   }
@@ -460,6 +478,7 @@ export class GameScene extends Phaser.Scene {
       this.busy = false;
       if (this.state.lines.length === 0) this.showVictory();
     } else {
+      this.playSound("collision", 1);
       await this.animateBlocked(line, result.blockerPoint, result.blockerId);
       this.state.loseWater();
       this.refreshHud();
@@ -623,16 +642,19 @@ export class GameScene extends Phaser.Scene {
     this.remainingText.setText(`剩余 ${this.state.lines.length}`);
     this.waterDrops.forEach((drop, index) => {
       const active = index < this.state.water;
-      if (!active && drop.alpha > 0.2) {
-        this.tweens.add({ targets: drop, alpha: 0.12, scale: 1.7, duration: 260, ease: "Back.easeIn" });
-      } else if (active) {
-        drop.setAlpha(1).setScale(1);
-      }
+      const shape = drop.getData("drop") as Phaser.GameObjects.Graphics;
+      const shine = drop.getData("shine") as Phaser.GameObjects.Graphics;
+      shape.clear();
+      shape.fillStyle(active ? 0x4ca7ea : 0xa79b8b, 1);
+      shape.fillCircle(0, 12, 25);
+      shape.fillTriangle(0, -34, -22, 7, 22, 7);
+      shine.setAlpha(active ? 1 : 0.24);
+      drop.setAlpha(1).setScale(1);
     });
   }
 
   private showVictory(): void {
-    this.sound.play("victory", { volume: 0.68 });
+    this.playSound("victory", 1);
     this.state.updateTimer();
     const stars = calculateStars(this.state.elapsedSeconds, this.state.water, this.state.level.difficulty.parTimeSeconds);
     recordWin(this.levelNumber, stars, this.state.elapsedSeconds);
@@ -671,7 +693,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private showFailure(): void {
-    this.sound.play("failure", { volume: 0.62 });
+    this.playSound("failure", 1);
     this.overlay = this.createOverlay(0xf7eee3);
     this.overlay.add(this.createCard(540, 900, 820, 650));
     const title = this.add.text(540, 680, "差一点！", {
