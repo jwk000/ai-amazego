@@ -12,8 +12,8 @@ const readLevel = async (levelNumber: number): Promise<LevelData> => {
 };
 
 describe("GeneratedLevelRepository", () => {
-  it("indexes 1053 high-density filled silhouette levels", () => {
-    expect(GENERATED_LEVEL_COUNT).toBe(1053);
+  it("indexes 510 deduplicated high-density filled silhouette levels", () => {
+    expect(GENERATED_LEVEL_COUNT).toBe(510);
     for (let levelNumber = 1; levelNumber <= GENERATED_LEVEL_COUNT; levelNumber += 1) {
       const preview = getLevelPreview(levelNumber);
       expect(preview).toBeDefined();
@@ -24,7 +24,7 @@ describe("GeneratedLevelRepository", () => {
   });
 
   it("validates structure for every file and fully solves distributed samples", async () => {
-    const samples = new Set([1, 2, 3, 10, 50, 100, 250, 500, 750, 1000, 1053]);
+    const samples = new Set([1, 2, 3, 10, 50, 100, 200, 300, 400, 500, 510]);
     for (let levelNumber = 1; levelNumber <= GENERATED_LEVEL_COUNT; levelNumber += 1) {
       const level = await readLevel(levelNumber);
       const occupied = new Set(level.lines.flatMap((line) => line.points.map(pointKey)));

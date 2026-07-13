@@ -227,14 +227,14 @@ npm run generate:levels
 
 ## 14. Tabler Filled 千关素材库
 
-当前正式关卡已切换为 Tabler Icons 的 `filled` 图标集合，只使用实心版本，不使用 `outline`。素材总数为 1053 个，对应 1053 个关卡。许可证为 MIT，副本保存在 `assets/silhouettes/TABLER-LICENSE.txt`。
+当前正式关卡已切换为 Tabler Icons 的 `filled` 图标集合，只使用实心版本，不使用 `outline`。原始素材共 1053 个。点阵化后按照裁剪、归一化、填洞后的实心外轮廓进行去重，并将水平镜像视为同一个轮廓。最终保留 510 个唯一剪影，对应 510 个关卡。许可证为 MIT，副本保存在 `assets/silhouettes/TABLER-LICENSE.txt`。
 
 点阵密度从原先最高约 20 × 28 提升到最高约 36 × 52。高密度点阵有效点数量范围约为 133 至 1599，横纵采样密度接近原来的两倍。
 
 为了避免将千关数据打入首屏 JavaScript：
 
 - `src/data/silhouette-boards.json` 只保存轻量点阵目录，用于列表缩略图；
-- `public/levels/0001.json` 至 `public/levels/1053.json` 保存单关数据；
+- `public/levels/0001.json` 至 `public/levels/0510.json` 保存单关数据；
 - 玩家点击关卡后才按需加载对应 JSON；
 - 离线生成使用多进程并行和逐关落盘，支持断点续跑。
 

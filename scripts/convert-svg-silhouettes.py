@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "assets/silhouettes/source-svg/filled"
 OUTPUT = ROOT / "src/data/silhouette-boards.json"
 PREVIEWS = ROOT / "assets/silhouettes/svg-previews"
+DUPLICATES = ROOT / "assets/silhouettes/duplicate-silhouettes.json"
 
 
 def largest_component(mask):
@@ -111,14 +112,44 @@ def sample(mask, width, height, box):
 def rows(mask): return ["".join("1" if value else "0" for value in row) for row in mask]
 
 
+def crop_mask(mask):
+    box = bounds(mask)
+    if not box: return [[False]]
+    min_x, min_y, max_x, max_y = box
+    return [row[min_x:max_x+1] for row in mask[min_y:max_y+1]]
+
+
+def signature(mask):
+    cropped = crop_mask(mask)
+    source = Image.new("L", (len(cropped[0]), len(cropped)), 255)
+    pixels = source.load()
+    for y,row in enumerate(cropped):
+        for x,value in enumerate(row):
+            if value: pixels[x,y] = 0
+    normalized = source.resize((48,48), Image.Resampling.NEAREST)
+    values = list(normalized.get_flattened_data())
+    direct = "".join("1" if value < 128 else "0" for value in values)
+    mirrored = normalized.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
+    mirror_values = list(mirrored.get_flattened_data())
+    mirror = "".join("1" if value < 128 else "0" for value in mirror_values)
+    return min(direct, mirror)
+
+
 def main():
     PREVIEWS.mkdir(parents=True, exist_ok=True)
     records = []
+    signatures = {}
+    duplicates = []
     for index, svg_path in enumerate(sorted(SOURCE.glob("*.svg")), start=1):
         image = rasterize(svg_path)
         mask = fill_holes(largest_component(image_mask(image)))
         width, height, box = choose_grid(mask)
         grid = sample(mask, width, height, box)
+        grid_signature = signature(grid)
+        if grid_signature in signatures:
+            duplicates.append({"duplicate": svg_path.name, "kept": signatures[grid_signature]})
+            continue
+        signatures[grid_signature] = svg_path.name
         active = sum(sum(row) for row in grid)
         if active < 35:
             grid = sample(mask, min(36, width+2), min(52, height+2), box)
@@ -131,13 +162,15 @@ def main():
                 if value:
                     for py in range(y*20,(y+1)*20):
                         for px in range(x*20,(x+1)*20): pixels[px,py]=0
-        preview.save(PREVIEWS / f"{index:03d}-{svg_path.stem}.png")
+        level_index = len(records) + 1
+        preview.save(PREVIEWS / f"{level_index:04d}.png")
         records.append({
-            "id": f"svg-{index:03d}-{svg_path.stem}", "name": svg_path.stem.replace("-", " "),
-            "source": f"assets/silhouettes/source-svg/{svg_path.name}", "width": width, "height": height,
+            "id": f"silhouette-{level_index:04d}", "name": f"关卡 {level_index}",
+            "source": f"assets/silhouettes/source-svg/filled/{svg_path.name}", "width": width, "height": height,
             "rows": rows(grid), "activeCells": active,
         })
     OUTPUT.write_text(json.dumps(records, ensure_ascii=False, indent=2)+"\n")
-    print(json.dumps({"count": len(records), "minCells": min(r["activeCells"] for r in records), "maxCells": max(r["activeCells"] for r in records)}))
+    DUPLICATES.write_text(json.dumps(duplicates, ensure_ascii=False, indent=2)+"\n")
+    print(json.dumps({"sourceCount": len(records)+len(duplicates), "uniqueCount": len(records), "duplicateCount": len(duplicates), "minCells": min(r["activeCells"] for r in records), "maxCells": max(r["activeCells"] for r in records)}))
 
 if __name__ == "__main__": main()

@@ -8,7 +8,7 @@ import silhouetteBoards from "../data/silhouette-boards.json";
 const shapes: BoardShape[] = ["rectangle", "circle", "diamond", "triangle", "cloud"];
 
 export const DESIGNED_LEVELS: ReadonlyArray<{ name: string; shape: BoardShape; variant: number }> =
-  silhouetteBoards.map((board, index) => ({ name: board.name, shape: "silhouette", variant: index }));
+  silhouetteBoards.map((_board, index) => ({ name: `关卡 ${index + 1}`, shape: "silhouette", variant: index }));
 
 const dimensions: Record<BoardShape, { width: number; height: number }> = {
   rectangle: { width: 16, height: 22 },
