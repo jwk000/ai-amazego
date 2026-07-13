@@ -1,0 +1,902 @@
+[
+  {
+    "id": "geometric-01-heart",
+    "category": "geometric",
+    "name": "爱心",
+    "subject": "a plump rounded heart",
+    "prompt": "a plump rounded heart, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-01-heart.png"
+  },
+  {
+    "id": "geometric-02-star",
+    "category": "geometric",
+    "name": "星星",
+    "subject": "a five-point rounded star",
+    "prompt": "a five-point rounded star, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-02-star.png"
+  },
+  {
+    "id": "geometric-03-moon",
+    "category": "geometric",
+    "name": "月亮",
+    "subject": "a thick crescent moon with the inner gap merged into a solid compact body",
+    "prompt": "a thick crescent moon with the inner gap merged into a solid compact body, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-03-moon.png"
+  },
+  {
+    "id": "geometric-04-sun",
+    "category": "geometric",
+    "name": "太阳",
+    "subject": "a round sun with short thick rounded rays connected to the center",
+    "prompt": "a round sun with short thick rounded rays connected to the center, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-04-sun.png"
+  },
+  {
+    "id": "geometric-05-lightning",
+    "category": "geometric",
+    "name": "闪电",
+    "subject": "a bold compact lightning bolt",
+    "prompt": "a bold compact lightning bolt, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-05-lightning.png"
+  },
+  {
+    "id": "geometric-06-shield",
+    "category": "geometric",
+    "name": "盾牌",
+    "subject": "a broad rounded medieval shield",
+    "prompt": "a broad rounded medieval shield, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-06-shield.png"
+  },
+  {
+    "id": "geometric-07-gem",
+    "category": "geometric",
+    "name": "宝石",
+    "subject": "a chunky faceted gemstone outer shape without facet lines",
+    "prompt": "a chunky faceted gemstone outer shape without facet lines, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-07-gem.png"
+  },
+  {
+    "id": "geometric-08-clover",
+    "category": "geometric",
+    "name": "四叶草",
+    "subject": "a compact four-leaf clover with thick connected leaves",
+    "prompt": "a compact four-leaf clover with thick connected leaves, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-08-clover.png"
+  },
+  {
+    "id": "geometric-09-flower-symbol",
+    "category": "geometric",
+    "name": "花形符号",
+    "subject": "a simple six-petal flower symbol with all petals connected",
+    "prompt": "a simple six-petal flower symbol with all petals connected, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-09-flower-symbol.png"
+  },
+  {
+    "id": "geometric-10-drop",
+    "category": "geometric",
+    "name": "水滴",
+    "subject": "a large rounded water droplet",
+    "prompt": "a large rounded water droplet, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-10-drop.png"
+  },
+  {
+    "id": "geometric-11-flame",
+    "category": "geometric",
+    "name": "火焰",
+    "subject": "a compact cartoon flame with no inner flame hole",
+    "prompt": "a compact cartoon flame with no inner flame hole, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-11-flame.png"
+  },
+  {
+    "id": "geometric-12-spiral-shell",
+    "category": "geometric",
+    "name": "旋涡",
+    "subject": "a compact rounded swirl outer silhouette without internal spiral lines",
+    "prompt": "a compact rounded swirl outer silhouette without internal spiral lines, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-12-spiral-shell.png"
+  },
+  {
+    "id": "geometric-13-bow",
+    "category": "geometric",
+    "name": "蝴蝶结",
+    "subject": "a chunky cute bow tie with connected loops and no holes",
+    "prompt": "a chunky cute bow tie with connected loops and no holes, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-13-bow.png"
+  },
+  {
+    "id": "geometric-14-crown-symbol",
+    "category": "geometric",
+    "name": "皇冠符号",
+    "subject": "a wide three-point cartoon crown with a solid base",
+    "prompt": "a wide three-point cartoon crown with a solid base, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-14-crown-symbol.png"
+  },
+  {
+    "id": "geometric-15-spark",
+    "category": "geometric",
+    "name": "闪光",
+    "subject": "a rounded four-point sparkle symbol",
+    "prompt": "a rounded four-point sparkle symbol, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-15-spark.png"
+  },
+  {
+    "id": "geometric-16-hexagon",
+    "category": "geometric",
+    "name": "六边形",
+    "subject": "a softly rounded hexagon",
+    "prompt": "a softly rounded hexagon, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-16-hexagon.png"
+  },
+  {
+    "id": "geometric-17-pentagon",
+    "category": "geometric",
+    "name": "五边形",
+    "subject": "a softly rounded pentagon",
+    "prompt": "a softly rounded pentagon, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-17-pentagon.png"
+  },
+  {
+    "id": "geometric-18-blob",
+    "category": "geometric",
+    "name": "软糖形",
+    "subject": "an asymmetrical rounded jelly blob",
+    "prompt": "an asymmetrical rounded jelly blob, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-18-blob.png"
+  },
+  {
+    "id": "geometric-19-badge",
+    "category": "geometric",
+    "name": "徽章",
+    "subject": "a scalloped award badge circle without ribbons or holes",
+    "prompt": "a scalloped award badge circle without ribbons or holes, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-19-badge.png"
+  },
+  {
+    "id": "geometric-20-rainbow-arch",
+    "category": "geometric",
+    "name": "彩虹拱形",
+    "subject": "a thick solid rainbow arch with the inner opening completely filled",
+    "prompt": "a thick solid rainbow arch with the inner opening completely filled, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/geometric-20-rainbow-arch.png"
+  },
+  {
+    "id": "animals-01-cat-head",
+    "category": "animals",
+    "name": "猫头",
+    "subject": "a cute front-facing cat head with short thick ears",
+    "prompt": "a cute front-facing cat head with short thick ears, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-01-cat-head.png"
+  },
+  {
+    "id": "animals-02-rabbit-head",
+    "category": "animals",
+    "name": "兔子头",
+    "subject": "a cute rabbit head with short thick rounded ears",
+    "prompt": "a cute rabbit head with short thick rounded ears, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-02-rabbit-head.png"
+  },
+  {
+    "id": "animals-03-bear-head",
+    "category": "animals",
+    "name": "熊头",
+    "subject": "a cute bear head with round connected ears",
+    "prompt": "a cute bear head with round connected ears, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-03-bear-head.png"
+  },
+  {
+    "id": "animals-04-fox-head",
+    "category": "animals",
+    "name": "狐狸头",
+    "subject": "a cute fox head with broad cheeks and thick ears",
+    "prompt": "a cute fox head with broad cheeks and thick ears, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-04-fox-head.png"
+  },
+  {
+    "id": "animals-05-panda-head",
+    "category": "animals",
+    "name": "熊猫头",
+    "subject": "a cute panda head outer silhouette with round connected ears, no face markings",
+    "prompt": "a cute panda head outer silhouette with round connected ears, no face markings, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-05-panda-head.png"
+  },
+  {
+    "id": "animals-06-dog-head",
+    "category": "animals",
+    "name": "小狗头",
+    "subject": "a cute dog head with thick floppy ears connected to the head",
+    "prompt": "a cute dog head with thick floppy ears connected to the head, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-06-dog-head.png"
+  },
+  {
+    "id": "animals-07-owl",
+    "category": "animals",
+    "name": "猫头鹰",
+    "subject": "a compact front-facing owl body with connected wing shapes and no eyes",
+    "prompt": "a compact front-facing owl body with connected wing shapes and no eyes, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-07-owl.png"
+  },
+  {
+    "id": "animals-08-penguin",
+    "category": "animals",
+    "name": "企鹅",
+    "subject": "a compact standing penguin outer silhouette with short connected flippers",
+    "prompt": "a compact standing penguin outer silhouette with short connected flippers, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-08-penguin.png"
+  },
+  {
+    "id": "animals-09-whale",
+    "category": "animals",
+    "name": "鲸鱼",
+    "subject": "a cute chunky whale with a short thick tail connected to the body",
+    "prompt": "a cute chunky whale with a short thick tail connected to the body, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-09-whale.png"
+  },
+  {
+    "id": "animals-10-fish",
+    "category": "animals",
+    "name": "小鱼",
+    "subject": "a plump fish with a thick connected tail",
+    "prompt": "a plump fish with a thick connected tail, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-10-fish.png"
+  },
+  {
+    "id": "animals-11-turtle",
+    "category": "animals",
+    "name": "乌龟",
+    "subject": "a compact top-view turtle with short thick legs connected to its shell",
+    "prompt": "a compact top-view turtle with short thick legs connected to its shell, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-11-turtle.png"
+  },
+  {
+    "id": "animals-12-frog-head",
+    "category": "animals",
+    "name": "青蛙头",
+    "subject": "a cute frog head with two rounded eye bumps but no facial details",
+    "prompt": "a cute frog head with two rounded eye bumps but no facial details, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-12-frog-head.png"
+  },
+  {
+    "id": "animals-13-elephant-head",
+    "category": "animals",
+    "name": "大象头",
+    "subject": "a front-facing elephant head with broad ears and a short thick trunk",
+    "prompt": "a front-facing elephant head with broad ears and a short thick trunk, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-13-elephant-head.png"
+  },
+  {
+    "id": "animals-14-lion-head",
+    "category": "animals",
+    "name": "狮子头",
+    "subject": "a cute lion head with a compact scalloped mane",
+    "prompt": "a cute lion head with a compact scalloped mane, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-14-lion-head.png"
+  },
+  {
+    "id": "animals-15-monkey-head",
+    "category": "animals",
+    "name": "猴子头",
+    "subject": "a cute monkey head with large round connected ears",
+    "prompt": "a cute monkey head with large round connected ears, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-15-monkey-head.png"
+  },
+  {
+    "id": "animals-16-koala-head",
+    "category": "animals",
+    "name": "考拉头",
+    "subject": "a cute koala head with fluffy round connected ears",
+    "prompt": "a cute koala head with fluffy round connected ears, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-16-koala-head.png"
+  },
+  {
+    "id": "animals-17-chick",
+    "category": "animals",
+    "name": "小鸡",
+    "subject": "a plump baby chick side silhouette with short feet merged into the body",
+    "prompt": "a plump baby chick side silhouette with short feet merged into the body, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-17-chick.png"
+  },
+  {
+    "id": "animals-18-duck",
+    "category": "animals",
+    "name": "小鸭",
+    "subject": "a plump duck side silhouette with a short broad bill",
+    "prompt": "a plump duck side silhouette with a short broad bill, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-18-duck.png"
+  },
+  {
+    "id": "animals-19-snail",
+    "category": "animals",
+    "name": "蜗牛",
+    "subject": "a compact snail with a large solid shell and thick body, no internal spiral",
+    "prompt": "a compact snail with a large solid shell and thick body, no internal spiral, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-19-snail.png"
+  },
+  {
+    "id": "animals-20-butterfly",
+    "category": "animals",
+    "name": "蝴蝶",
+    "subject": "a compact symmetric butterfly with all four wings connected and no holes",
+    "prompt": "a compact symmetric butterfly with all four wings connected and no holes, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/animals-20-butterfly.png"
+  },
+  {
+    "id": "nature-01-cloud",
+    "category": "nature",
+    "name": "云朵",
+    "subject": "a fluffy compact cloud with a flat rounded base",
+    "prompt": "a fluffy compact cloud with a flat rounded base, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-01-cloud.png"
+  },
+  {
+    "id": "nature-02-mountain",
+    "category": "nature",
+    "name": "山峰",
+    "subject": "a compact group of three connected rounded mountain peaks",
+    "prompt": "a compact group of three connected rounded mountain peaks, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-02-mountain.png"
+  },
+  {
+    "id": "nature-03-leaf",
+    "category": "nature",
+    "name": "树叶",
+    "subject": "a broad simple leaf with a short thick stem and no veins",
+    "prompt": "a broad simple leaf with a short thick stem and no veins, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-03-leaf.png"
+  },
+  {
+    "id": "nature-04-maple-leaf",
+    "category": "nature",
+    "name": "枫叶",
+    "subject": "a simplified chunky maple leaf with broad lobes and a thick short stem",
+    "prompt": "a simplified chunky maple leaf with broad lobes and a thick short stem, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-04-maple-leaf.png"
+  },
+  {
+    "id": "nature-05-flower",
+    "category": "nature",
+    "name": "花朵",
+    "subject": "a cute flower with six broad connected petals and a filled center",
+    "prompt": "a cute flower with six broad connected petals and a filled center, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-05-flower.png"
+  },
+  {
+    "id": "nature-06-mushroom",
+    "category": "nature",
+    "name": "蘑菇",
+    "subject": "a cute mushroom with a wide rounded cap and thick stem",
+    "prompt": "a cute mushroom with a wide rounded cap and thick stem, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-06-mushroom.png"
+  },
+  {
+    "id": "nature-07-tree",
+    "category": "nature",
+    "name": "大树",
+    "subject": "a compact round-canopy tree with a thick trunk connected to the crown",
+    "prompt": "a compact round-canopy tree with a thick trunk connected to the crown, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-07-tree.png"
+  },
+  {
+    "id": "nature-08-cactus",
+    "category": "nature",
+    "name": "仙人掌",
+    "subject": "a chunky saguaro cactus with thick short arms",
+    "prompt": "a chunky saguaro cactus with thick short arms, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-08-cactus.png"
+  },
+  {
+    "id": "nature-09-pine-tree",
+    "category": "nature",
+    "name": "松树",
+    "subject": "a simplified compact pine tree with broad layered branches and a thick trunk",
+    "prompt": "a simplified compact pine tree with broad layered branches and a thick trunk, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-09-pine-tree.png"
+  },
+  {
+    "id": "nature-10-island",
+    "category": "nature",
+    "name": "小岛",
+    "subject": "a compact tropical island silhouette with a short palm tree fused to a rounded island base",
+    "prompt": "a compact tropical island silhouette with a short palm tree fused to a rounded island base, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-10-island.png"
+  },
+  {
+    "id": "nature-11-wave",
+    "category": "nature",
+    "name": "海浪",
+    "subject": "a single thick rounded ocean wave with no enclosed curl hole",
+    "prompt": "a single thick rounded ocean wave with no enclosed curl hole, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-11-wave.png"
+  },
+  {
+    "id": "nature-12-snowflake",
+    "category": "nature",
+    "name": "雪花",
+    "subject": "a simplified chunky six-arm snowflake with thick connected branches",
+    "prompt": "a simplified chunky six-arm snowflake with thick connected branches, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-12-snowflake.png"
+  },
+  {
+    "id": "nature-13-acorn",
+    "category": "nature",
+    "name": "橡果",
+    "subject": "a plump acorn with a broad cap and short stem, no internal line",
+    "prompt": "a plump acorn with a broad cap and short stem, no internal line, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-13-acorn.png"
+  },
+  {
+    "id": "nature-14-pumpkin",
+    "category": "nature",
+    "name": "南瓜",
+    "subject": "a round pumpkin outer silhouette with a short thick stem and no segment lines",
+    "prompt": "a round pumpkin outer silhouette with a short thick stem and no segment lines, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-14-pumpkin.png"
+  },
+  {
+    "id": "nature-15-pinecone",
+    "category": "nature",
+    "name": "松果",
+    "subject": "a compact oval pinecone outer silhouette with no scale details",
+    "prompt": "a compact oval pinecone outer silhouette with no scale details, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-15-pinecone.png"
+  },
+  {
+    "id": "nature-16-shell",
+    "category": "nature",
+    "name": "贝壳",
+    "subject": "a broad fan-shaped seashell outer silhouette without internal ridges",
+    "prompt": "a broad fan-shaped seashell outer silhouette without internal ridges, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-16-shell.png"
+  },
+  {
+    "id": "nature-17-coral",
+    "category": "nature",
+    "name": "珊瑚",
+    "subject": "a compact branching coral with thick rounded branches",
+    "prompt": "a compact branching coral with thick rounded branches, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-17-coral.png"
+  },
+  {
+    "id": "nature-18-volcano",
+    "category": "nature",
+    "name": "火山",
+    "subject": "a broad volcano silhouette with a short connected smoke puff and no crater hole",
+    "prompt": "a broad volcano silhouette with a short connected smoke puff and no crater hole, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-18-volcano.png"
+  },
+  {
+    "id": "nature-19-comet",
+    "category": "nature",
+    "name": "彗星",
+    "subject": "a rounded comet head with a thick connected flowing tail",
+    "prompt": "a rounded comet head with a thick connected flowing tail, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-19-comet.png"
+  },
+  {
+    "id": "nature-20-planet",
+    "category": "nature",
+    "name": "行星",
+    "subject": "a solid round planet with a thick ring fused to the planet, no holes",
+    "prompt": "a solid round planet with a thick ring fused to the planet, no holes, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/nature-20-planet.png"
+  },
+  {
+    "id": "objects-01-rocket",
+    "category": "objects",
+    "name": "火箭",
+    "subject": "a cute chunky upright rocket with short fins and no windows",
+    "prompt": "a cute chunky upright rocket with short fins and no windows, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-01-rocket.png"
+  },
+  {
+    "id": "objects-02-castle",
+    "category": "objects",
+    "name": "城堡",
+    "subject": "a compact cartoon castle with three broad towers and a solid base, no doors or windows",
+    "prompt": "a compact cartoon castle with three broad towers and a solid base, no doors or windows, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-02-castle.png"
+  },
+  {
+    "id": "objects-03-house",
+    "category": "objects",
+    "name": "小屋",
+    "subject": "a cute compact house with a broad roof and solid body, no doors or windows",
+    "prompt": "a cute compact house with a broad roof and solid body, no doors or windows, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-03-house.png"
+  },
+  {
+    "id": "objects-04-gift",
+    "category": "objects",
+    "name": "礼物",
+    "subject": "a wrapped gift box with a chunky bow fused to the box, no ribbon lines",
+    "prompt": "a wrapped gift box with a chunky bow fused to the box, no ribbon lines, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-04-gift.png"
+  },
+  {
+    "id": "objects-05-umbrella",
+    "category": "objects",
+    "name": "雨伞",
+    "subject": "a broad rounded umbrella canopy with a short thick curved handle connected to it",
+    "prompt": "a broad rounded umbrella canopy with a short thick curved handle connected to it, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-05-umbrella.png"
+  },
+  {
+    "id": "objects-06-key",
+    "category": "objects",
+    "name": "钥匙",
+    "subject": "a chunky antique key with the handle opening completely filled",
+    "prompt": "a chunky antique key with the handle opening completely filled, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-06-key.png"
+  },
+  {
+    "id": "objects-07-bell",
+    "category": "objects",
+    "name": "铃铛",
+    "subject": "a broad cartoon bell with a connected clapper",
+    "prompt": "a broad cartoon bell with a connected clapper, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-07-bell.png"
+  },
+  {
+    "id": "objects-08-cup",
+    "category": "objects",
+    "name": "杯子",
+    "subject": "a chunky mug with the handle opening completely filled",
+    "prompt": "a chunky mug with the handle opening completely filled, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-08-cup.png"
+  },
+  {
+    "id": "objects-09-teapot",
+    "category": "objects",
+    "name": "茶壶",
+    "subject": "a cute round teapot with a thick spout and handle, all openings filled",
+    "prompt": "a cute round teapot with a thick spout and handle, all openings filled, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-09-teapot.png"
+  },
+  {
+    "id": "objects-10-lamp",
+    "category": "objects",
+    "name": "台灯",
+    "subject": "a compact desk lamp with a broad shade and thick connected base",
+    "prompt": "a compact desk lamp with a broad shade and thick connected base, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-10-lamp.png"
+  },
+  {
+    "id": "objects-11-lightbulb",
+    "category": "objects",
+    "name": "灯泡",
+    "subject": "a plump light bulb with a thick screw base and no internal filament",
+    "prompt": "a plump light bulb with a thick screw base and no internal filament, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-11-lightbulb.png"
+  },
+  {
+    "id": "objects-12-camera",
+    "category": "objects",
+    "name": "相机",
+    "subject": "a compact camera body with a round lens bump but no internal hole",
+    "prompt": "a compact camera body with a round lens bump but no internal hole, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-12-camera.png"
+  },
+  {
+    "id": "objects-13-backpack",
+    "category": "objects",
+    "name": "背包",
+    "subject": "a rounded school backpack with short straps merged into the body",
+    "prompt": "a rounded school backpack with short straps merged into the body, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-13-backpack.png"
+  },
+  {
+    "id": "objects-14-shoe",
+    "category": "objects",
+    "name": "鞋子",
+    "subject": "a chunky side-view sneaker with no lace details",
+    "prompt": "a chunky side-view sneaker with no lace details, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-14-shoe.png"
+  },
+  {
+    "id": "objects-15-hat",
+    "category": "objects",
+    "name": "帽子",
+    "subject": "a cute broad-brim hat with a rounded crown",
+    "prompt": "a cute broad-brim hat with a rounded crown, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-15-hat.png"
+  },
+  {
+    "id": "objects-16-chair",
+    "category": "objects",
+    "name": "椅子",
+    "subject": "a compact cartoon armchair with thick legs and no gaps",
+    "prompt": "a compact cartoon armchair with thick legs and no gaps, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-16-chair.png"
+  },
+  {
+    "id": "objects-17-clock",
+    "category": "objects",
+    "name": "闹钟",
+    "subject": "a round alarm clock with bells and legs connected, no clock-face details",
+    "prompt": "a round alarm clock with bells and legs connected, no clock-face details, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-17-clock.png"
+  },
+  {
+    "id": "objects-18-boat",
+    "category": "objects",
+    "name": "帆船",
+    "subject": "a compact sailboat with a thick sail fused to a broad hull, no gaps",
+    "prompt": "a compact sailboat with a thick sail fused to a broad hull, no gaps, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-18-boat.png"
+  },
+  {
+    "id": "objects-19-train",
+    "category": "objects",
+    "name": "小火车",
+    "subject": "a chunky side-view toy locomotive with wheels fused to the body",
+    "prompt": "a chunky side-view toy locomotive with wheels fused to the body, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-19-train.png"
+  },
+  {
+    "id": "objects-20-guitar",
+    "category": "objects",
+    "name": "吉他",
+    "subject": "a compact acoustic guitar with a thick neck and no sound hole",
+    "prompt": "a compact acoustic guitar with a thick neck and no sound hole, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/objects-20-guitar.png"
+  },
+  {
+    "id": "food-01-apple",
+    "category": "food",
+    "name": "苹果",
+    "subject": "a plump apple with a short thick stem and one broad connected leaf",
+    "prompt": "a plump apple with a short thick stem and one broad connected leaf, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-01-apple.png"
+  },
+  {
+    "id": "food-02-pear",
+    "category": "food",
+    "name": "梨",
+    "subject": "a plump pear with a short thick stem",
+    "prompt": "a plump pear with a short thick stem, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-02-pear.png"
+  },
+  {
+    "id": "food-03-strawberry",
+    "category": "food",
+    "name": "草莓",
+    "subject": "a broad strawberry with a thick leafy crown and no seed details",
+    "prompt": "a broad strawberry with a thick leafy crown and no seed details, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-03-strawberry.png"
+  },
+  {
+    "id": "food-04-cherry-pair",
+    "category": "food",
+    "name": "樱桃",
+    "subject": "two plump cherries connected by thick joined stems",
+    "prompt": "two plump cherries connected by thick joined stems, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-04-cherry-pair.png"
+  },
+  {
+    "id": "food-05-pineapple",
+    "category": "food",
+    "name": "菠萝",
+    "subject": "a compact pineapple with a broad chunky leaf crown and no surface pattern",
+    "prompt": "a compact pineapple with a broad chunky leaf crown and no surface pattern, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-05-pineapple.png"
+  },
+  {
+    "id": "food-06-watermelon",
+    "category": "food",
+    "name": "西瓜",
+    "subject": "a thick watermelon slice outer silhouette with no rind or seed details",
+    "prompt": "a thick watermelon slice outer silhouette with no rind or seed details, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-06-watermelon.png"
+  },
+  {
+    "id": "food-07-banana",
+    "category": "food",
+    "name": "香蕉",
+    "subject": "a thick curved banana with rounded ends",
+    "prompt": "a thick curved banana with rounded ends, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-07-banana.png"
+  },
+  {
+    "id": "food-08-grape",
+    "category": "food",
+    "name": "葡萄",
+    "subject": "a compact bunch of large connected grapes with a short thick leaf",
+    "prompt": "a compact bunch of large connected grapes with a short thick leaf, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-08-grape.png"
+  },
+  {
+    "id": "food-09-orange",
+    "category": "food",
+    "name": "橙子",
+    "subject": "a round orange with a short stem and broad connected leaf",
+    "prompt": "a round orange with a short stem and broad connected leaf, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-09-orange.png"
+  },
+  {
+    "id": "food-10-peach",
+    "category": "food",
+    "name": "桃子",
+    "subject": "a plump peach outer silhouette with a broad connected leaf and no center groove",
+    "prompt": "a plump peach outer silhouette with a broad connected leaf and no center groove, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-10-peach.png"
+  },
+  {
+    "id": "food-11-cake",
+    "category": "food",
+    "name": "蛋糕",
+    "subject": "a compact birthday cake with one thick layer and connected frosting, no candles",
+    "prompt": "a compact birthday cake with one thick layer and connected frosting, no candles, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-11-cake.png"
+  },
+  {
+    "id": "food-12-cupcake",
+    "category": "food",
+    "name": "纸杯蛋糕",
+    "subject": "a cupcake with a broad swirled frosting outer silhouette and solid wrapper",
+    "prompt": "a cupcake with a broad swirled frosting outer silhouette and solid wrapper, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-12-cupcake.png"
+  },
+  {
+    "id": "food-13-ice-cream",
+    "category": "food",
+    "name": "冰淇淋",
+    "subject": "a large rounded ice cream scoop fused to a broad cone with no pattern",
+    "prompt": "a large rounded ice cream scoop fused to a broad cone with no pattern, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-13-ice-cream.png"
+  },
+  {
+    "id": "food-14-candy",
+    "category": "food",
+    "name": "糖果",
+    "subject": "a wrapped candy with chunky wrapper ends and no internal twist lines",
+    "prompt": "a wrapped candy with chunky wrapper ends and no internal twist lines, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-14-candy.png"
+  },
+  {
+    "id": "food-15-cookie",
+    "category": "food",
+    "name": "饼干",
+    "subject": "a round cookie with a small bite shape on one edge but no chip details",
+    "prompt": "a round cookie with a small bite shape on one edge but no chip details, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-15-cookie.png"
+  },
+  {
+    "id": "food-16-donut",
+    "category": "food",
+    "name": "甜甜圈",
+    "subject": "a plump round donut with the center hole completely filled",
+    "prompt": "a plump round donut with the center hole completely filled, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-16-donut.png"
+  },
+  {
+    "id": "food-17-bread",
+    "category": "food",
+    "name": "面包",
+    "subject": "a rounded loaf of bread with no scoring lines",
+    "prompt": "a rounded loaf of bread with no scoring lines, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-17-bread.png"
+  },
+  {
+    "id": "food-18-cheese",
+    "category": "food",
+    "name": "奶酪",
+    "subject": "a chunky cheese wedge with no holes",
+    "prompt": "a chunky cheese wedge with no holes, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-18-cheese.png"
+  },
+  {
+    "id": "food-19-carrot",
+    "category": "food",
+    "name": "胡萝卜",
+    "subject": "a thick short carrot with a broad connected leafy top",
+    "prompt": "a thick short carrot with a broad connected leafy top, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-19-carrot.png"
+  },
+  {
+    "id": "food-20-pumpkin-food",
+    "category": "food",
+    "name": "南瓜果实",
+    "subject": "a plump squat pumpkin with a short thick stem and no internal segment lines",
+    "prompt": "a plump squat pumpkin with a short thick stem and no internal segment lines, single solid pure black silhouette, centered on a pure white square background, one connected compact shape, simple rounded outer contour, no eyes, no mouth, no internal details, no internal lines, no holes, no cutouts, no outlines, no shading, no gradients, no texture, no text, no disconnected parts, thick sturdy features, high contrast, icon-like, instantly recognizable at thumbnail size, suitable for conversion to a 16 by 24 mobile puzzle grid",
+    "negativePrompt": "gray pixels, anti-aliased gray background, facial features, internal decoration, thin limbs, thin tail, antenna, isolated fragments, line art, hollow ring, realistic style, complex scene",
+    "output": "assets/silhouettes/raw/food-20-pumpkin-food.png"
+  }
+]

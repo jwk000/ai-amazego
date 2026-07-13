@@ -4,8 +4,9 @@ import type { ArrowLine, BoardMask, Direction, GridPoint, LevelData } from "../c
 import { evaluateMove } from "../gameplay/MoveEvaluator";
 import { generateBoardMask } from "./BoardMaskGenerator";
 import { getEscapableLines, solveLevel } from "./LevelSolver";
+import { GENERATED_LEVEL_COUNT, getGeneratedLevel } from "../data/GeneratedLevelRepository";
 
-const palette = [0x765943, 0xe58b72, 0x5f9e92, 0x7c73b5, 0xd49b35, 0x4d87bd];
+const LINE_COLOR = 0x4b4b4b;
 const directions: Direction[] = ["up", "right", "down", "left"];
 
 const buildOccupancy = (lines: readonly ArrowLine[]): Set<string> => {
@@ -43,6 +44,7 @@ const createCandidate = (
   random: SeededRandom,
   minLength: number,
   maxLength: number,
+  maxTurns: number,
 ): ArrowLine | null => {
   const occupied = buildOccupancy(placed);
   const direction = random.pick(directions);
@@ -57,7 +59,10 @@ const createCandidate = (
 
     while (points.length < targetLength) {
       const choices: Direction[] = [walkDirection];
-      if (turns < 4 && points.length > 2) choices.push(...perpendicularDirections(walkDirection));
+      if (turns < maxTurns && points.length > 1) {
+        const perpendicular = perpendicularDirections(walkDirection);
+        choices.push(...perpendicular, ...perpendicular);
+      }
       const shuffled = random.shuffle(choices);
       let added = false;
 
@@ -77,7 +82,7 @@ const createCandidate = (
     }
 
     if (points.length < minLength) continue;
-    const candidate: ArrowLine = { id, points, direction, color: palette[Number(id.slice(1)) % palette.length] };
+    const candidate: ArrowLine = { id, points, direction, color: LINE_COLOR };
     if (evaluateMove(candidate, [...placed, candidate], board.width, board.height).canEscape) return candidate;
   }
 
@@ -97,21 +102,23 @@ const computeDependencyDepth = (lines: readonly ArrowLine[], width: number, heig
 };
 
 export const generateLevel = (levelNumber: number): LevelData => {
+  if (levelNumber >= 1 && levelNumber <= GENERATED_LEVEL_COUNT) return getGeneratedLevel(levelNumber);
   const baseSeed = 104729 * levelNumber + 7919;
 
   for (let restart = 0; restart < 80; restart += 1) {
     const seed = baseSeed + restart * 97;
     const random = new SeededRandom(seed);
     const board = generateBoardMask(levelNumber, random);
-    const targetCount = Math.min(28, 7 + Math.floor(levelNumber * 0.75));
-    const minLength = 3;
-    const maxLength = Math.min(11, 5 + Math.floor(levelNumber / 5));
+    const targetCount = Math.min(34, 10 + Math.floor(levelNumber * 0.8));
+    const minLength = Math.min(7, 5 + Math.floor(levelNumber / 12));
+    const maxLength = Math.min(16, 10 + Math.floor(levelNumber / 4));
+    const maxTurns = Math.min(9, 6 + Math.floor(levelNumber / 10));
     const placed: ArrowLine[] = [];
     let failures = 0;
 
     while (placed.length < targetCount && failures < 180) {
       const id = `L${String(placed.length + 1).padStart(2, "0")}`;
-      const candidate = createCandidate(id, board, placed, random, minLength, maxLength);
+      const candidate = createCandidate(id, board, placed, random, minLength, maxLength, maxTurns);
       if (candidate) {
         placed.push(candidate);
         failures = 0;
@@ -122,7 +129,9 @@ export const generateLevel = (levelNumber: number): LevelData => {
 
     if (placed.length < Math.max(6, targetCount - 2)) continue;
 
-    const provisional = { board, lines: placed };
+    const occupiedCells = buildOccupancy(placed);
+    const filledBoard: BoardMask = { ...board, cells: occupiedCells };
+    const provisional = { board: filledBoard, lines: placed };
     const solution = solveLevel(provisional);
     if (!solution) continue;
 
@@ -144,7 +153,7 @@ export const generateLevel = (levelNumber: number): LevelData => {
     return {
       id: `campaign-${String(levelNumber).padStart(4, "0")}`,
       seed,
-      board,
+      board: filledBoard,
       lines: placed,
       solution,
       difficulty: { score, parTimeSeconds, dependencyDepth, initialChoices },

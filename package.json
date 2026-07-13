@@ -6,6 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "generate:levels": "tsx scripts/generate-levels.ts",
+    "silhouette:manifest": "tsx scripts/create-silhouette-manifest.ts",
+    "silhouette:generate": "tsx scripts/generate-silhouettes.ts",
+    "silhouette:process": "python3 scripts/process-silhouettes.py",
+    "silhouette:svg": "python3 scripts/convert-svg-silhouettes.py",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest"
@@ -16,6 +21,7 @@
   "devDependencies": {
     "@types/node": "^24.0.0",
     "typescript": "^5.8.3",
+    "tsx": "^4.20.0",
     "vite": "^7.0.0",
     "vitest": "^3.2.4"
   }

@@ -1,6 +1,7 @@
 export type Direction = "up" | "right" | "down" | "left";
 
 export type GridPoint = Readonly<{ x: number; y: number }>;
+export type BoardShape = "rectangle" | "circle" | "diamond" | "triangle" | "cloud" | "silhouette";
 
 export type ArrowLine = {
   id: string;
@@ -13,7 +14,7 @@ export type BoardMask = {
   width: number;
   height: number;
   cells: Set<string>;
-  shape: "rounded" | "diamond" | "islands";
+  shape: BoardShape;
 };
 
 export type LevelDifficulty = {

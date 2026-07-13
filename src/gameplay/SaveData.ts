@@ -1,6 +1,6 @@
 const storageKey = "amazego-save-v1";
 
-type SaveData = {
+export type SaveData = {
   unlockedLevel: number;
   stars: Record<string, number>;
   bestTimes: Record<string, number>;

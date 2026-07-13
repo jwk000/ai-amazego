@@ -2,22 +2,27 @@ import Phaser from "phaser";
 import { directionVector, isInsideBounds } from "../core/grid";
 import type { ArrowLine, GridPoint } from "../core/types";
 import { GameState } from "../gameplay/GameState";
+import { findNearestLine } from "../gameplay/LineHitTest";
 import { advanceLineOneGrid, evaluateMove, isLineOutside } from "../gameplay/MoveEvaluator";
 import { calculateStars } from "../gameplay/ScoreCalculator";
-import { recordWin } from "../gameplay/SaveData";
+import { loadSave, recordWin } from "../gameplay/SaveData";
 import { generateLevel } from "../level/LevelGenerator";
+import { DESIGNED_LEVELS } from "../level/DesignedLevels";
+import { GENERATED_LEVEL_COUNT, getGeneratedLevel } from "../data/GeneratedLevelRepository";
 import { getEscapableLines } from "../level/LevelSolver";
 
 const DESIGN_WIDTH = 1080;
 const DESIGN_HEIGHT = 1920;
-const LINE_COLORS = [0x765943, 0xe58b72, 0x5f9e92, 0x7c73b5, 0xd49b35, 0x4d87bd];
+const LINE_COLOR = 0x4b4b4b;
+const STEP_DURATION_MS = 55;
+const ESCAPE_STEP_DURATION_MS = 45;
 
 export class GameScene extends Phaser.Scene {
   private levelNumber = 1;
   private state!: GameState;
   private boardGraphics!: Phaser.GameObjects.Graphics;
   private lineGraphics = new Map<string, Phaser.GameObjects.Graphics>();
-  private hitAreas = new Map<string, Phaser.GameObjects.Zone>();
+  private boardHitArea?: Phaser.GameObjects.Zone;
   private levelText!: Phaser.GameObjects.Text;
   private timerText!: Phaser.GameObjects.Text;
   private remainingText!: Phaser.GameObjects.Text;
@@ -28,6 +33,8 @@ export class GameScene extends Phaser.Scene {
   private busy = false;
   private overlay?: Phaser.GameObjects.Container;
   private timerEvent?: Phaser.Time.TimerEvent;
+  private pageObjects: Phaser.GameObjects.GameObject[] = [];
+  private levelPage = 0;
 
   constructor() {
     super("game");
@@ -36,8 +43,7 @@ export class GameScene extends Phaser.Scene {
   create(): void {
     this.cameras.main.setBackgroundColor("#f6eddc");
     this.createPaperBackground();
-    this.createHeader();
-    this.startLevel(1);
+    this.showLevelSelect();
   }
 
   private createPaperBackground(): void {
@@ -55,11 +61,14 @@ export class GameScene extends Phaser.Scene {
   }
 
   private createHeader(): void {
-    this.add.text(72, 94, "‹", {
+    const back = this.add.text(72, 94, "‹", {
       fontFamily: "Arial Rounded MT Bold, sans-serif",
       fontSize: "92px",
       color: "#715743",
-    }).setOrigin(0.5).setInteractive({ useHandCursor: true });
+    }).setOrigin(0.5).setDepth(50);
+    back.setInteractive(new Phaser.Geom.Rectangle(-12, -8, 112, 120), Phaser.Geom.Rectangle.Contains, true);
+    back.on("pointerdown", () => this.showLevelSelect());
+    this.pageObjects.push(back);
 
     this.levelText = this.add.text(DESIGN_WIDTH / 2, 96, "关卡 1", {
       fontFamily: "Arial Rounded MT Bold, PingFang SC, sans-serif",
@@ -67,6 +76,7 @@ export class GameScene extends Phaser.Scene {
       fontStyle: "bold",
       color: "#cf8a19",
     }).setOrigin(0.5);
+    this.pageObjects.push(this.levelText);
 
     const settings = this.add.container(982, 96);
     const gear = this.add.graphics();
@@ -74,27 +84,130 @@ export class GameScene extends Phaser.Scene {
     gear.strokeCircle(0, 0, 34);
     gear.strokeCircle(0, 0, 12);
     settings.add(gear).setSize(88, 88).setInteractive({ useHandCursor: true });
+    this.pageObjects.push(settings);
 
     const divider = this.add.graphics();
     divider.lineStyle(4, 0xdac7a2, 1);
     divider.lineBetween(52, 184, 1028, 184);
+    this.pageObjects.push(divider);
 
     this.timerText = this.add.text(540, 255, "00:00", {
       fontFamily: "Arial Rounded MT Bold, sans-serif",
       fontSize: "35px",
       color: "#8b715a",
     }).setOrigin(0.5);
+    this.pageObjects.push(this.timerText);
 
     this.remainingText = this.add.text(940, 255, "剩余 0", {
       fontFamily: "PingFang SC, sans-serif",
       fontSize: "31px",
       color: "#8b715a",
     }).setOrigin(1, 0.5);
+    this.pageObjects.push(this.remainingText);
+  }
+
+  private showLevelSelect(): void {
+    this.clearPageObjects();
+    const title = this.add.text(540, 120, "选择关卡", {
+      fontFamily: "Arial Rounded MT Bold, PingFang SC, sans-serif",
+      fontSize: "68px",
+      fontStyle: "bold",
+      color: "#cf8a19",
+    }).setOrigin(0.5);
+    const subtitle = this.add.text(540, 205, `100 个剪影关卡 · 第 ${this.levelPage + 1}/10 页`, {
+      fontFamily: "PingFang SC, sans-serif",
+      fontSize: "30px",
+      color: "#8b715a",
+    }).setOrigin(0.5);
+    this.pageObjects.push(title, subtitle);
+
+    const save = loadSave();
+    const startIndex = this.levelPage * 10;
+    DESIGNED_LEVELS.slice(startIndex, startIndex + 10).forEach((config, index) => {
+      const levelNumber = startIndex + index + 1;
+      const x = index % 2 === 0 ? 290 : 790;
+      const y = 390 + Math.floor(index / 2) * 295;
+      const card = this.createLevelCard(x, y, levelNumber, config.name, save.stars[String(levelNumber)] ?? 0);
+      this.pageObjects.push(card);
+    });
+
+    if (this.levelPage > 0) this.pageObjects.push(this.createPageButton(180, 1770, "上一页", -1));
+    if ((this.levelPage + 1) * 10 < GENERATED_LEVEL_COUNT) this.pageObjects.push(this.createPageButton(900, 1770, "下一页", 1));
+  }
+
+  private createPageButton(x: number, y: number, label: string, delta: number): Phaser.GameObjects.Container {
+    const button = this.add.container(x, y);
+    const background = this.add.graphics();
+    background.fillStyle(0xd9c39d, 1);
+    background.fillRoundedRect(-115, -48, 230, 96, 44);
+    const text = this.add.text(0, 0, label, {
+      fontFamily: "PingFang SC, sans-serif",
+      fontSize: "32px",
+      color: "#654d3a",
+    }).setOrigin(0.5);
+    button.add([background, text]).setSize(230, 96).setInteractive({ useHandCursor: true });
+    button.on("pointerdown", () => {
+      this.levelPage += delta;
+      this.showLevelSelect();
+    });
+    return button;
+  }
+
+  private createLevelCard(x: number, y: number, levelNumber: number, name: string, stars: number): Phaser.GameObjects.Container {
+    const container = this.add.container(x, y);
+    const shadow = this.add.graphics();
+    shadow.fillStyle(0x775a3e, 0.15);
+    shadow.fillRoundedRect(-205, -115, 410, 255, 32);
+    const card = this.add.graphics();
+    card.fillStyle(0xfffbf3, 1);
+    card.fillRoundedRect(-205, -125, 410, 255, 32);
+    card.lineStyle(3, 0xe4d0aa, 1);
+    card.strokeRoundedRect(-205, -125, 410, 255, 32);
+    const preview = this.add.graphics();
+    this.drawLevelThumbnail(preview, getGeneratedLevel(levelNumber), 0, -32, 260, 145);
+    const numberText = this.add.text(-166, -92, String(levelNumber), {
+      fontFamily: "Arial Rounded MT Bold, sans-serif",
+      fontSize: "27px",
+      fontStyle: "bold",
+      color: "#cf8a19",
+    }).setOrigin(0.5);
+    const nameText = this.add.text(0, 70, name, {
+      fontFamily: "Arial Rounded MT Bold, PingFang SC, sans-serif",
+      fontSize: "34px",
+      fontStyle: "bold",
+      color: "#5f4a3a",
+    }).setOrigin(0.5);
+    const starText = this.add.text(0, 108, `${"★".repeat(stars)}${"☆".repeat(3 - stars)}`, {
+      fontFamily: "Arial, sans-serif",
+      fontSize: "32px",
+      color: "#e7ad2e",
+    }).setOrigin(0.5);
+    container.add([shadow, card, preview, numberText, nameText, starText]);
+    container.setSize(410, 255).setInteractive({ useHandCursor: true });
+    container.on("pointerdown", () => this.startLevel(levelNumber));
+    return container;
+  }
+
+  private drawLevelThumbnail(graphics: Phaser.GameObjects.Graphics, level: ReturnType<typeof getGeneratedLevel>, centerX: number, centerY: number, width: number, height: number): void {
+    const scale = Math.min(width / level.board.width, height / level.board.height);
+    const originX = centerX - (level.board.width - 1) * scale / 2;
+    const originY = centerY - (level.board.height - 1) * scale / 2;
+    graphics.lineStyle(Math.max(2.2, scale * 0.18), LINE_COLOR, 0.9);
+    for (const line of level.lines) {
+      graphics.beginPath();
+      line.points.forEach((point, index) => {
+        const px = originX + point.x * scale;
+        const py = originY + point.y * scale;
+        if (index === 0) graphics.moveTo(px, py); else graphics.lineTo(px, py);
+      });
+      graphics.strokePath();
+    }
   }
 
   private startLevel(levelNumber: number): void {
     this.levelNumber = Math.max(1, levelNumber);
-    this.clearLevelObjects();
+    this.clearPageObjects();
+    this.createHeader();
     const level = generateLevel(this.levelNumber);
     this.state = new GameState(level);
     this.levelText.setText(`关卡 ${this.levelNumber}`);
@@ -104,7 +217,11 @@ export class GameScene extends Phaser.Scene {
     this.createLineObjects();
     this.createTools();
     this.refreshHud();
-    this.state.resetTimer();
+    this.busy = true;
+    void this.playGrowthIntro().then(() => {
+      this.busy = false;
+      this.state.resetTimer();
+    });
     this.timerEvent = this.time.addEvent({
       delay: 250,
       loop: true,
@@ -122,9 +239,9 @@ export class GameScene extends Phaser.Scene {
     this.overlay = undefined;
     this.boardGraphics?.destroy();
     this.lineGraphics.forEach((graphics) => graphics.destroy());
-    this.hitAreas.forEach((zone) => zone.destroy());
+    this.boardHitArea?.destroy();
+    this.boardHitArea = undefined;
     this.lineGraphics.clear();
-    this.hitAreas.clear();
     this.waterDrops.forEach((drop) => drop.destroy());
     this.waterDrops = [];
     this.hintButton?.destroy();
@@ -132,12 +249,18 @@ export class GameScene extends Phaser.Scene {
     this.busy = false;
   }
 
+  private clearPageObjects(): void {
+    this.clearLevelObjects();
+    this.pageObjects.forEach((object) => object.destroy());
+    this.pageObjects = [];
+  }
+
   private fitBoard(): void {
     const board = this.state.level.board;
     const availableWidth = 900;
     const availableHeight = 1120;
-    this.cellSize = Math.floor(Math.min(64, availableWidth / Math.max(1, board.width - 1), availableHeight / Math.max(1, board.height - 1)));
-    this.cellSize = Math.max(38, this.cellSize);
+    this.cellSize = Math.floor(Math.min(54, availableWidth / Math.max(1, board.width - 1), availableHeight / Math.max(1, board.height - 1)));
+    this.cellSize = Math.max(34, this.cellSize);
     const boardWidth = (board.width - 1) * this.cellSize;
     const boardHeight = (board.height - 1) * this.cellSize;
     this.boardOrigin.set((DESIGN_WIDTH - boardWidth) / 2, 360 + (availableHeight - boardHeight) / 2);
@@ -173,14 +296,74 @@ export class GameScene extends Phaser.Scene {
       const graphics = this.add.graphics();
       graphics.setData("line-id", line.id);
       this.lineGraphics.set(line.id, graphics);
-      this.redrawLine(line);
-
-      const zone = this.add.zone(0, 0, DESIGN_WIDTH, DESIGN_HEIGHT).setOrigin(0);
-      zone.setInteractive(new Phaser.Geom.Rectangle(0, 0, DESIGN_WIDTH, DESIGN_HEIGHT), (_area, x, y) =>
-        this.distanceToLine(line, x, y) <= Math.max(24, this.cellSize * 0.42));
-      zone.on("pointerdown", () => this.handleLineTap(line.id));
-      this.hitAreas.set(line.id, zone);
+      graphics.clear();
     }
+
+    this.boardHitArea = this.add.zone(40, 320, DESIGN_WIDTH - 80, 1260).setOrigin(0).setInteractive();
+    this.boardHitArea.setDepth(10);
+    this.boardHitArea.on("pointerdown", (pointer: Phaser.Input.Pointer) => this.handleBoardTap(pointer.x, pointer.y));
+  }
+
+  private async playGrowthIntro(): Promise<void> {
+    const animations = this.state.lines.map((line, index) => this.animateLineGrowth(line, index * 18));
+    await Promise.all(animations);
+    for (const line of this.state.lines) this.redrawLine(line);
+  }
+
+  private async animateLineGrowth(line: ArrowLine, delay: number): Promise<void> {
+    if (delay > 0) await this.delay(delay);
+    const tailToHead = [...line.points].reverse();
+    for (let segment = 0; segment < tailToHead.length - 1; segment += 1) {
+      await this.animateGrowthSegment(line, tailToHead, segment);
+    }
+  }
+
+  private animateGrowthSegment(line: ArrowLine, tailToHead: GridPoint[], segment: number): Promise<void> {
+    return new Promise((resolve) => {
+      const startedAt = this.time.now;
+      const tick = (): void => {
+        const progress = Phaser.Math.Clamp((this.time.now - startedAt) / STEP_DURATION_MS, 0, 1);
+        const graphics = this.lineGraphics.get(line.id);
+        if (!graphics) {
+          resolve();
+          return;
+        }
+        graphics.clear();
+        const visiblePoints = tailToHead.slice(0, segment + 1);
+        const from = tailToHead[segment];
+        const to = tailToHead[segment + 1];
+        visiblePoints.push({
+          x: Phaser.Math.Linear(from.x, to.x, progress),
+          y: Phaser.Math.Linear(from.y, to.y, progress),
+        });
+        const width = Math.max(8, this.cellSize * 0.16);
+        graphics.lineStyle(width + 6, 0xffffff, 0.38);
+        this.strokeContinuousPath(graphics, visiblePoints);
+        graphics.lineStyle(width, LINE_COLOR, 1);
+        this.strokeContinuousPath(graphics, visiblePoints);
+        if (segment === tailToHead.length - 2) {
+          const growingHead = visiblePoints[visiblePoints.length - 1];
+          const world = this.toWorld(growingHead);
+          this.drawArrowHead(graphics, world.x, world.y, line.direction, LINE_COLOR);
+        }
+        if (progress >= 1) {
+          resolve();
+          return;
+        }
+        this.time.delayedCall(0, tick);
+      };
+      tick();
+    });
+  }
+
+  private handleBoardTap(worldX: number, worldY: number): void {
+    if (this.busy || this.overlay) return;
+    const gridPoint = {
+      x: (worldX - this.boardOrigin.x) / this.cellSize,
+      y: (worldY - this.boardOrigin.y) / this.cellSize,
+    };
+    const line = findNearestLine(this.state.lines, gridPoint, 0.46);
+    if (line) void this.handleLineTap(line.id);
   }
 
   private redrawLine(line: ArrowLine, offset = new Phaser.Math.Vector2()): void {
@@ -190,7 +373,7 @@ export class GameScene extends Phaser.Scene {
     const visible = line.points.filter((point) => isInsideBounds(point, this.state.level.board.width, this.state.level.board.height));
     if (visible.length === 0) return;
 
-    const color = line.color || LINE_COLORS[0];
+    const color = LINE_COLOR;
     const width = Math.max(8, this.cellSize * 0.16);
     graphics.lineStyle(width + 6, 0xffffff, 0.38);
     this.strokeVisiblePath(graphics, line.points, offset);
@@ -252,9 +435,7 @@ export class GameScene extends Phaser.Scene {
       await this.animateEscape(line);
       this.state.removeLine(line.id);
       this.lineGraphics.get(line.id)?.destroy();
-      this.hitAreas.get(line.id)?.destroy();
       this.lineGraphics.delete(line.id);
-      this.hitAreas.delete(line.id);
       this.refreshHud();
       this.busy = false;
       if (this.state.lines.length === 0) this.showVictory();
@@ -270,11 +451,78 @@ export class GameScene extends Phaser.Scene {
   private async animateEscape(line: ArrowLine): Promise<void> {
     const maxFrames = line.points.length + this.state.level.board.width + this.state.level.board.height + 4;
     for (let frame = 0; frame < maxFrames; frame += 1) {
+      await this.animateOneGrid(line);
       advanceLineOneGrid(line);
       this.redrawLine(line);
       if (isLineOutside(line, this.state.level.board.width, this.state.level.board.height)) break;
-      await this.delay(Math.max(48, 88 - this.levelNumber));
     }
+  }
+
+  private animateOneGrid(line: ArrowLine): Promise<void> {
+    return new Promise((resolve) => {
+      const startedAt = this.time.now;
+      const tick = (): void => {
+        const progress = Phaser.Math.Clamp((this.time.now - startedAt) / ESCAPE_STEP_DURATION_MS, 0, 1);
+        const eased = Phaser.Math.Easing.Sine.InOut(progress);
+        this.redrawInterpolatedLine(line, eased);
+        if (progress >= 1) {
+          resolve();
+          return;
+        }
+        this.time.delayedCall(0, tick);
+      };
+      tick();
+    });
+  }
+
+  private redrawInterpolatedLine(line: ArrowLine, progress: number): void {
+    const graphics = this.lineGraphics.get(line.id);
+    if (!graphics || line.points.length === 0) return;
+    graphics.clear();
+
+    const vector = directionVector(line.direction);
+    const head = line.points[0];
+    const movingHead = { x: head.x + vector.x * progress, y: head.y + vector.y * progress };
+    const renderPoints: GridPoint[] = [movingHead, ...line.points];
+    if (line.points.length > 1) {
+      const tail = line.points[line.points.length - 1];
+      const beforeTail = line.points[line.points.length - 2];
+      renderPoints[renderPoints.length - 1] = {
+        x: Phaser.Math.Linear(tail.x, beforeTail.x, progress),
+        y: Phaser.Math.Linear(tail.y, beforeTail.y, progress),
+      };
+    }
+
+    const width = Math.max(8, this.cellSize * 0.16);
+    graphics.lineStyle(width + 6, 0xffffff, 0.38);
+    this.strokeContinuousPath(graphics, renderPoints);
+    graphics.lineStyle(width, LINE_COLOR, 1);
+    this.strokeContinuousPath(graphics, renderPoints);
+
+    if (movingHead.x >= 0 && movingHead.y >= 0 && movingHead.x < this.state.level.board.width && movingHead.y < this.state.level.board.height) {
+      const world = this.toWorld(movingHead);
+      this.drawArrowHead(graphics, world.x, world.y, line.direction, LINE_COLOR);
+    }
+  }
+
+  private strokeContinuousPath(graphics: Phaser.GameObjects.Graphics, points: readonly GridPoint[]): void {
+    let drawing = false;
+    for (const point of points) {
+      const inside = point.x >= 0 && point.y >= 0 && point.x < this.state.level.board.width && point.y < this.state.level.board.height;
+      if (!inside) {
+        drawing = false;
+        continue;
+      }
+      const world = this.toWorld(point);
+      if (!drawing) {
+        graphics.beginPath();
+        graphics.moveTo(world.x, world.y);
+        drawing = true;
+      } else {
+        graphics.lineTo(world.x, world.y);
+      }
+    }
+    if (drawing) graphics.strokePath();
   }
 
   private async animateBlocked(line: ArrowLine, blockerPoint: GridPoint, blockerId: string): Promise<void> {
@@ -393,7 +641,11 @@ export class GameScene extends Phaser.Scene {
       lineSpacing: 22,
     }).setOrigin(0.5);
     this.overlay.add(stats);
-    this.overlay.add(this.createActionButton(540, 1195, "下一关", () => this.startLevel(this.levelNumber + 1)));
+    const nextLabel = this.levelNumber < GENERATED_LEVEL_COUNT ? "下一关" : "返回关卡列表";
+    this.overlay.add(this.createActionButton(540, 1195, nextLabel, () => {
+      if (this.levelNumber < GENERATED_LEVEL_COUNT) this.startLevel(this.levelNumber + 1);
+      else this.showLevelSelect();
+    }));
     this.overlay.add(this.createTextButton(540, 1325, "重玩本关", () => this.startLevel(this.levelNumber)));
   }
 
@@ -463,17 +715,6 @@ export class GameScene extends Phaser.Scene {
     }).setOrigin(0.5).setInteractive({ useHandCursor: true });
     text.on("pointerdown", callback);
     return text;
-  }
-
-  private distanceToLine(line: ArrowLine, localX: number, localY: number): number {
-    let best = Number.POSITIVE_INFINITY;
-    for (let index = 1; index < line.points.length; index += 1) {
-      const start = this.toWorld(line.points[index - 1]);
-      const end = this.toWorld(line.points[index]);
-      const nearest = Phaser.Geom.Line.GetNearestPoint(new Phaser.Geom.Line(start.x, start.y, end.x, end.y), new Phaser.Math.Vector2(localX, localY));
-      best = Math.min(best, Phaser.Math.Distance.Between(nearest.x, nearest.y, localX, localY));
-    }
-    return best;
   }
 
   private toWorld(point: GridPoint): Phaser.Math.Vector2 {
